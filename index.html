@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamba Kicks | Exclusive Nike Kobe Sneaker Boutique</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mambaDark: '#0b0b0d',
+                        mambaCard: '#15151a',
+                        mambaPurple: '#7b2cbf',
+                        mambaPurpleDark: '#5a189a',
+                        mambaGold: '#e5a93c',
+                        mambaGoldHover: '#c98e2b',
+                        mambaGray: '#24242d',
+                        mambaTextGray: '#9ca3af'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Custom External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-mambaPurpleDark via-mambaPurple to-mambaPurpleDark text-white text-xs py-2 px-4 text-center font-medium tracking-wide border-b border-mambaPurple/30">
+        <span class="inline-block animate-pulse mr-2">🐍</span> MAMBA MENTALITY: FREE INSURED OVERNIGHT SHIPPING ON ORDERS OVER $500 | 100% AUTHENTIC GUARANTEED
+    </div>
+
+    <!-- HEADER / GLOBAL NAV -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl mamba-purple-gradient flex items-center justify-center text-mambaGold text-xl font-black shadow-lg shadow-mambaPurple/30 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-bold fa-shield-halved"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black tracking-tight text-white flex items-center">
+                            MAMBA<span class="text-mambaGold ml-1.5">KICKS</span>
+                        </span>
+                        <span class="text-[10px] text-mambaTextGray uppercase tracking-widest -mt-1 font-semibold">The Kobe Vault</span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center space-x-1 text-sm font-medium">
+                    <button onclick="navigateTo('home')" id="nav-home" class="nav-link px-3 py-2 rounded-md text-white hover:text-mambaGold hover:bg-white/5 transition-all">Home</button>
+                    <button onclick="navigateTo('sneakers')" id="nav-sneakers" class="nav-link px-3 py-2 rounded-md text-mambaTextGray hover:text-mambaGold hover:bg-white/5 transition-all">Sneakers</button>
+                    <button onclick="navigateTo('lineage')" id="nav-lineage" class="nav-link px-3 py-2 rounded-md text-mambaTextGray hover:text-mambaGold hover:bg-white/5 transition-all">Lineage Guide</button>
+                    <button onclick="navigateTo('drops')" id="nav-drops" class="nav-link px-3 py-2 rounded-md text-mambaTextGray hover:text-mambaGold hover:bg-white/5 transition-all">Drop Calendar</button>
+                    <button onclick="navigateTo('apparel')" id="nav-apparel" class="nav-link px-3 py-2 rounded-md text-mambaTextGray hover:text-mambaGold hover:bg-white/5 transition-all">Apparel & Gear</button>
+                    <button onclick="navigateTo('trust')" id="nav-trust" class="nav-link px-3 py-2 rounded-md text-mambaTextGray hover:text-mambaGold hover:bg-white/5 transition-all">Trust & Auth</button>
+                    <button onclick="navigateTo('sell')" id="nav-sell" class="nav-link px-3 py-2 rounded-md text-mambaTextGray hover:text-mambaGold hover:bg-white/5 transition-all">Sell / Trade</button>
+                    <button onclick="navigateTo('policies')" id="nav-policies" class="nav-link px-3 py-2 rounded-md text-mambaTextGray hover:text-mambaGold hover:bg-white/5 transition-all">Policies</button>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="openCart()" class="relative p-2.5 rounded-xl bg-mambaCard border border-white/10 text-white hover:border-mambaGold/50 transition-colors">
+                        <i class="fa-solid fa-bag-shopping text-lg text-mambaGold"></i>
+                        <span id="cart-count-badge" class="absolute -top-1.5 -right-1.5 bg-mambaPurple text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-mambaDark">0</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-mambaCard border border-white/10 text-white">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-mambaDark/95 px-4 pt-3 pb-6 space-y-2">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-mambaCard">Home</button>
+            <button onclick="navigateTo('sneakers'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-mambaTextGray hover:bg-mambaCard">Sneakers Catalog</button>
+            <button onclick="navigateTo('lineage'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-mambaTextGray hover:bg-mambaCard">Lineage Guide</button>
+            <button onclick="navigateTo('drops'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-mambaTextGray hover:bg-mambaCard">Drop Calendar</button>
+            <button onclick="navigateTo('apparel'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-mambaTextGray hover:bg-mambaCard">Apparel & Gear</button>
+            <button onclick="navigateTo('trust'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-mambaTextGray hover:bg-mambaCard">Trust & Authenticity</button>
+            <button onclick="navigateTo('sell'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-mambaTextGray hover:bg-mambaCard">Sell / Trade Form</button>
+            <button onclick="navigateTo('policies'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-mambaTextGray hover:bg-mambaCard">Policies & Terms</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow">
+        <!-- 1. HOME VIEW -->
+        <section id="view-home" class="view-section active">
+            <div class="relative overflow-hidden bg-gradient-to-b from-mambaDark via-mambaCard to-mambaDark py-16 md:py-24 border-b border-white/5">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#7b2cbf_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-7 space-y-6 text-left">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mambaPurple/20 border border-mambaPurple/40 text-mambaGold text-xs font-semibold uppercase tracking-wider">
+                                <i class="fa-solid fa-crown text-[10px]"></i> Curated Kobe Protro Inventory
+                            </div>
+                            <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-none uppercase">
+                                Mamba Forever <br>
+                                <span class="mamba-gradient-text">Legends Live On</span>
+                            </h1>
+                            <p class="text-mambaTextGray text-base sm:text-lg max-w-2xl leading-relaxed">
+                                The premier authenticated destination for Nike Kobe Bryant signature sneakers. From rare Grails like the Kobe 6 Grinch & Prelude Pack to court-ready Protros.
+                            </p>
+                            <div class="flex flex-wrap items-center gap-4 pt-2">
+                                <button onclick="navigateTo('sneakers')" class="px-8 py-4 rounded-xl mamba-gold-gradient text-mambaDark font-extrabold text-sm uppercase tracking-wider hover:opacity-95 transition-transform hover:-translate-y-0.5 shadow-lg shadow-mambaGold/20">
+                                    Shop Catalog (25+ Pairs) <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button onclick="navigateTo('trust')" class="px-8 py-4 rounded-xl bg-mambaCard border border-white/15 text-white font-bold text-sm uppercase tracking-wider hover:bg-white/10 transition-colors">
+                                    Our Auth Process
+                                </button>
+                            </div>
+                            <div class="pt-6 grid grid-cols-3 gap-4 border-t border-white/10 max-w-lg">
+                                <div>
+                                    <p class="text-xl font-bold text-white">100%</p>
+                                    <p class="text-xs text-mambaTextGray">Verified Authentic</p>
+                                </div>
+                                <div>
+                                    <p class="text-xl font-bold text-mambaGold">10-Point</p>
+                                    <p class="text-xs text-mambaTextGray">Inspection Check</p>
+                                </div>
+                                <div>
+                                    <p class="text-xl font-bold text-mambaPurple font-extrabold">24/7</p>
+                                    <p class="text-xs text-mambaTextGray">Insured Shipping</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 relative">
+                            <div class="relative mx-auto max-w-md rounded-2xl bg-gradient-to-tr from-mambaPurple/30 to-mambaGold/20 p-1 border border-white/15 shadow-2xl">
+                                <div class="bg-mambaCard p-6 rounded-xl text-center space-y-4">
+                                    <span class="inline-block bg-red-500/20 text-red-400 border border-red-500/30 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Featured Grail Drop</span>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjX0_X4FUiY10zWaHEPC5v53-VJnU_ExRBvbTVY2kYMA&s=10" alt="Nike Kobe Protro Showcase" class="w-full h-64 object-cover rounded-lg shadow-md filter hover:scale-105 transition-transform duration-500">
+                                    <div class="text-left pt-2">
+                                        <h3 class="text-xl font-extrabold text-white">Nike Kobe 6 Protro 'Grinch'</h3>
+                                        <p class="text-sm text-mambaGold font-bold mt-1">$780.00 <span class="text-xs text-mambaTextGray font-normal">| Size 10.5 US</span></p>
+                                    </div>
+                                    <button onclick="quickAddToCart(1)" class="w-full py-3 rounded-lg mamba-purple-gradient text-white font-bold text-sm tracking-wide hover:opacity-90 transition-opacity">
+                                        Add to Cart Immediately
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-black uppercase text-white tracking-tight">Featured Mamba Drops</h2>
+                        <p class="text-mambaTextGray text-sm">Top deadstock and pristine Kobe Protros in stock now</p>
+                    </div>
+                    <button onclick="navigateTo('sneakers')" class="text-mambaGold hover:text-white font-bold text-sm flex items-center gap-2">
+                        View All 25 Vault Pairs <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+                <div id="home-featured-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+
+            <div class="bg-mambaCard border-y border-white/10 py-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-2 text-center md:text-left">
+                        <span class="text-xs text-mambaGold uppercase tracking-widest font-bold">Never Miss A Drop</span>
+                        <h3 class="text-2xl font-extrabold text-white">Upcoming Nike Kobe Release Dates & Restocks</h3>
+                        <p class="text-sm text-mambaTextGray">Get instant SMS and email notifications when rare Kobe silhouettes drop.</p>
+                    </div>
+                    <button onclick="navigateTo('drops')" class="px-6 py-3 rounded-xl bg-mambaPurple text-white font-bold text-sm hover:bg-mambaPurpleDark transition-colors whitespace-nowrap">
+                        View Drop Calendar & Alerts
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SNEAKERS CATALOG VIEW -->
+        <section id="view-sneakers" class="view-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <div class="border-b border-white/10 pb-6 mb-8">
+                    <h1 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Kobe Vault Catalog</h1>
+                    <p class="text-mambaTextGray text-sm mt-1">Browse our complete authenticated starting inventory of Kobe 4, 5, 6, 8 & 11s.</p>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl mb-8 space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                        <div class="lg:col-span-2 relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-mambaTextGray"></i>
+                            <input type="text" id="catalog-search" oninput="applyFilters()" placeholder="Search colorway, model..." class="w-full bg-mambaDark border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-mambaGold">
+                        </div>
+                        <div>
+                            <select id="filter-silhouette" onchange="applyFilters()" class="w-full bg-mambaDark border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-mambaGold">
+                                <option value="all">All Silhouettes</option>
+                                <option value="Kobe 4">Kobe 4 Protro</option>
+                                <option value="Kobe 5">Kobe 5 Protro</option>
+                                <option value="Kobe 6">Kobe 6 Protro</option>
+                                <option value="Kobe 8">Kobe 8 Protro</option>
+                                <option value="Kobe 11">Kobe 11 Signature</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select id="filter-condition" onchange="applyFilters()" class="w-full bg-mambaDark border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-mambaGold">
+                                <option value="all">All Conditions</option>
+                                <option value="Deadstock">Deadstock (Brand New)</option>
+                                <option value="Pre-owned">Pre-Owned (VNDS/Pristine)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select id="filter-type" onchange="applyFilters()" class="w-full bg-mambaDark border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-mambaGold">
+                                <option value="all">All Release Types</option>
+                                <option value="Protro">Protro Release</option>
+                                <option value="OG">OG / Classic</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-mambaTextGray pt-2 border-t border-white/5">
+                        <span id="catalog-count-label">Showing 25 items</span>
+                        <button onclick="resetFilters()" class="text-mambaGold hover:underline font-semibold">Reset All Filters</button>
+                    </div>
+                </div>
+
+                <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- 3. LINEAGE GUIDE VIEW -->
+        <section id="view-lineage" class="view-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                    <span class="text-xs font-bold text-mambaGold uppercase tracking-widest">Collector & Baller Education</span>
+                    <h1 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">Kobe Model Lineage Guide</h1>
+                    <p class="text-mambaTextGray text-sm sm:text-base">Explore the technological evolution of the Kobe signature series.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                        <div class="lg:col-span-5">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Inbf99y8OeNHRABzOQdNi6qhUzfL5Ip-DBZdY4Ua0w&s=10" alt="Nike Kobe 4 Protro" class="rounded-xl w-full h-64 object-cover">
+                        </div>
+                        <div class="lg:col-span-7 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-mambaGold/20 text-mambaGold text-xs font-bold px-3 py-1 rounded-full border border-mambaGold/30">Debut: 2008</span>
+                                <h2 class="text-2xl font-black text-white">Nike Zoom Kobe IV / Protro</h2>
+                            </div>
+                            <p class="text-sm text-mambaTextGray leading-relaxed">
+                                Eric Avar & Kobe Bryant changed basketball footwear forever by introducing the low-cut silhouette to elite performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. DROP CALENDAR VIEW -->
+        <section id="view-drops" class="view-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-white/10 pb-6 mb-8 gap-4">
+                    <div>
+                        <h1 class="text-3xl font-black text-white uppercase tracking-tight">Kobe Release Drop Calendar</h1>
+                        <p class="text-mambaTextGray text-sm">Upcoming official SNKRS drops, boutique restocks, and raffle links.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-4">
+                        <div class="glass-panel rounded-xl p-5 flex flex-col sm:flex-row items-center gap-5 border-l-4 border-l-mambaGold">
+                            <div class="text-center sm:text-left bg-mambaDark p-3 rounded-lg min-w-[100px]">
+                                <span class="text-xs font-extrabold text-mambaGold uppercase">AUG 24</span>
+                                <p class="text-2xl font-black text-white">2026</p>
+                            </div>
+                            <div class="flex-grow space-y-1 text-center sm:text-left">
+                                <span class="text-[10px] bg-mambaPurple/30 text-mambaPurple border border-mambaPurple/40 px-2 py-0.5 rounded font-bold uppercase">Mamba Day Exclusive</span>
+                                <h3 class="text-lg font-bold text-white">Nike Kobe 9 Elite Protro 'What The'</h3>
+                                <p class="text-xs text-mambaTextGray">Retail Price: $240 | High-top Flyknit</p>
+                            </div>
+                            <button onclick="showDropNotificationModal('Kobe 9 Elite What The')" class="px-4 py-2 bg-mambaCard border border-white/15 hover:border-mambaGold text-white rounded-lg text-xs font-bold transition-colors whitespace-nowrap">
+                                Set Reminder
+                            </button>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl h-fit space-y-4">
+                        <h3 class="text-xl font-extrabold text-white">VIP Drop Alert Subscription</h3>
+                        <p class="text-xs text-mambaTextGray">Be the first to access restocks on Grinches, Bruce Lees, and limited Protro releases.</p>
+                        <form onsubmit="handleDropSubscription(event)" class="space-y-3">
+                            <div>
+                                <label class="text-xs text-mambaTextGray font-semibold block mb-1">Email Address</label>
+                                <input type="email" required placeholder="mamba@kobe.com" class="w-full bg-mambaDark border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-mambaGold">
+                            </div>
+                            <button type="submit" class="w-full py-3 mamba-gold-gradient text-mambaDark font-extrabold text-xs uppercase tracking-wider rounded-lg shadow-md">
+                                Subscribe for Alerts
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. APPAREL & GEAR VIEW -->
+        <section id="view-apparel" class="view-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-6 mb-8 gap-4">
+                    <div>
+                        <h1 class="text-3xl font-black text-white uppercase tracking-tight">Kobe Apparel & Mamba Gear</h1>
+                        <p class="text-mambaTextGray text-sm">Official Nike Mamba hoodies, jerseys, socks, and court accessories.</p>
+                    </div>
+                    <button onclick="toggleSizeChartModal()" class="px-4 py-2 rounded-lg bg-mambaCard border border-white/15 text-xs font-bold text-mambaGold hover:bg-white/10">
+                        <i class="fa-solid fa-ruler-horizontal mr-1.5"></i> Nike Kobe Apparel Sizing Chart
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-panel p-4 rounded-xl space-y-3">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-kDXghGSTr0lailmULm73OKf3ih6eAZUXzVByf1en4w&s=10" alt="Nike Kobe Hoodie" class="w-full h-48 object-cover rounded-lg">
+                        <span class="text-[10px] bg-mambaPurple/20 text-mambaPurple px-2 py-0.5 rounded font-bold">Heavyweight Fleece</span>
+                        <h3 class="text-base font-bold text-white">Nike Kobe Mamba Mentality Hoodie</h3>
+                        <p class="text-sm font-extrabold text-mambaGold">$120.00</p>
+                        <button onclick="addApparelToCart('Nike Kobe Mamba Mentality Hoodie', 120)" class="w-full py-2 rounded bg-mambaDark hover:bg-mambaPurple border border-white/10 text-white text-xs font-bold transition-colors">
+                            Add Apparel to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TRUST & AUTHENTICITY VIEW -->
+        <section id="view-trust" class="view-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span class="text-xs font-bold text-mambaGold uppercase tracking-widest">Uncompromising Verification</span>
+                    <h1 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">The 10-Point Authenticity Guarantee</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. SELL / TRADE FORM VIEW -->
+        <section id="view-sell" class="view-section">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <div class="text-center mb-8 space-y-2">
+                    <h1 class="text-3xl font-black text-white uppercase tracking-tight">Sell or Trade Your Kobes</h1>
+                    <p class="text-mambaTextGray text-sm">Submit your Nike Kobe sneakers for competitive cash offers.</p>
+                </div>
+                <form onsubmit="handleConsignmentSubmit(event)" class="glass-panel p-6 md:p-8 rounded-2xl space-y-6">
+                    <button type="submit" class="w-full py-4 mamba-purple-gradient text-white font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg hover:opacity-95 transition-opacity">
+                        Submit Offer for Intake Evaluation
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 8. POLICIES & TERMS VIEW -->
+        <section id="view-policies" class="view-section">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+                <div class="border-b border-white/10 pb-4">
+                    <h1 class="text-3xl font-black text-white uppercase tracking-tight">Shipping, Returns & Fraud Policies</h1>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-mambaCard border-t border-white/10 mt-16 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="border-t border-white/10 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-mambaTextGray gap-4">
+                <p>&copy; 2026 Mamba Kicks Boutique. All Rights Reserved. Not affiliated with Nike, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART SLIDE-OVER MODAL -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden overflow-hidden">
+        <div class="absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity" onclick="closeCart()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-mambaCard border-l border-white/10 flex flex-col shadow-2xl">
+                <div class="p-6 border-b border-white/10 flex items-center justify-between">
+                    <h2 class="text-lg font-black text-white uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-mambaGold"></i> Your Mamba Vault Cart
+                    </h2>
+                    <button onclick="closeCart()" class="text-mambaTextGray hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="cart-items-container" class="flex-grow overflow-y-auto p-6 space-y-4"></div>
+                <div class="p-6 border-t border-white/10 bg-mambaDark space-y-4">
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between text-mambaTextGray">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal" class="text-white font-bold">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-mambaTextGray">
+                            <span>Insured Overnight Shipping</span>
+                            <span id="cart-shipping" class="text-white font-bold">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-white font-black pt-2 border-t border-white/10">
+                            <span>Total Amount</span>
+                            <span id="cart-total" class="text-mambaGold font-black text-base">$0.00</span>
+                        </div>
+                    </div>
+                    <button onclick="triggerSimulatedCheckout()" id="checkout-btn" class="w-full py-3.5 mamba-gold-gradient text-mambaDark font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg hover:opacity-95 transition-opacity disabled:opacity-50">
+                        Proceed to Insured Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIZING CHART MODAL -->
+    <div id="size-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleSizeChartModal()"></div>
+        <div class="glass-panel max-w-lg w-full rounded-2xl p-6 relative z-10 space-y-4">
+            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                <h3 class="text-lg font-bold text-white">Nike Kobe Apparel Sizing Chart</h3>
+                <button onclick="toggleSizeChartModal()" class="text-mambaTextGray hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION MODAL -->
+    <div id="notification-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeNotificationModal()"></div>
+        <div class="glass-panel max-w-sm w-full rounded-2xl p-6 text-center relative z-10 space-y-4">
+            <div class="w-12 h-12 rounded-full mamba-gold-gradient flex items-center justify-center mx-auto text-mambaDark text-xl font-bold">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="notif-title" class="text-lg font-bold text-white">Drop Reminder Set!</h3>
+            <p id="notif-body" class="text-xs text-mambaTextGray">You will receive an instant push notification prior to release.</p>
+            <button onclick="closeNotificationModal()" class="w-full py-2.5 rounded-lg bg-mambaPurple text-white text-xs font-bold">Got It</button>
+        </div>
+    </div>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
